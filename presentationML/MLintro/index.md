@@ -77,7 +77,7 @@ In Frameworks:
 ---
 ## In Research
 
-![Vladimir Levenshtein](levresearch.png)
+![Vladimir Levenshtein](levresearch.PNG)
 
 ---
 ## As you shout out in the forest, you are answered!
@@ -121,8 +121,28 @@ Example:
 ---
 ## Exploration
 
+Machine Learning can help us explore a dataset.
+
+*Iris* dataset: 
+
+50 measurements of *sepal length* and *width*, and *petal length* and *width* of 50 flowers of 3 species of Iris, **setosa**, **versicolor**, and **virginica**.
+
+![](Begerblad.jpg)
+
+Que?!
+
 ---
-## Visualization
+## Explore: Scatter Plot Matrix (SPLOM)
+
+![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4-1.png)
+
+---
+## Visualize: Dendrogram
+![plot of chunk unnamed-chunk-5](assets/fig/unnamed-chunk-5-1.png)
+
+---
+## Or Possibly This?
+![plot of chunk unnamed-chunk-6](assets/fig/unnamed-chunk-6-1.png)
 
 ---
 ## Understanding
