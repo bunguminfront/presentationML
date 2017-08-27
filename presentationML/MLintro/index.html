@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to Machine Learning</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Introduction to Machine Learning">
+  <meta name="author" content="Lars Bungum and Eivind Havikbotn">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Introduction to Machine Learning</h1>
+    <h2>A few thoughts and some examples</h2>
+    <p>Lars Bungum and Eivind Havikbotn<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Synopsis</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>What is Machine Learning? </li>
+<li>Some Examples</li>
+<li>Deep Learning</li>
+<li>Sum up/ Q&amp;A</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>What is this?</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">sed &lt;- function(s1, s2) {
+    if (nchar(s1) == 0)
+        return(nchar(s2))
+    if (nchar(s2) == 0)
+        return(nchar(s1))
+
+    if (substr(s1, 1, 1) == substr(s2, 1, 1)) {
+        sed(substr(s1, 2, nchar(s1)), substr(s2, 2, nchar(s2)))
+    }
+    else {
+        min(1 + sed(substr(s1, 2, nchar(s1)), s2),
+        1 + sed(s1, substr(s2, 2, nchar(s2))),
+        1 + sed(substr(s1, 2, nchar(s1)), substr(s2, 2, nchar(s2)))
+        )
+    }
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Levenshtein Distance!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="vova.jpg" alt="Vladimir Levenshtein"></p>
+
+<pre><code class="r">sed(&quot;lars&quot;, &quot;lasse&quot;)
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+<pre><code class="r">sed(&quot;lars&quot;, &quot;lauritz&quot;)
+</code></pre>
+
+<pre><code>## [1] 4
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Levenshtein Distance = Machine Learning</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>In Frameworks:</p>
+
+<ol>
+<li>Python: from leven import levenshtein</li>
+<li>R: library(stringdist)</li>
+<li>Java: weka </li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>In Research</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="levresearch.png" alt="Vladimir Levenshtein"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>As you shout out in the forest, you are answered!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="venn1.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <article data-timings="">
+    <p><img src="venn2.jpg" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <article data-timings="">
+    <p><img src="venn3.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <article data-timings="">
+    <p><img src="venn4.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <article data-timings="">
+    <p><img src="venn5.jpg" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Machine Learning Enables Us To:</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Predict</li>
+<li>Explore</li>
+<li>Visualize</li>
+<li>Understand</li>
+</ol>
+
+<p class='.'>with lots of data.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Prediction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Prediction ranges from predicting classes, binary or multiclass, i.e., &quot;should I stay or should I go&quot; vs. &quot;when should I go&quot;, if the potential times are discrete.  If they are continuous, we have a regression problem.</p>
+
+<p>A lot (but not arbitrarily much!) context can be taken into account when making these predictions.</p>
+
+<p>Example:</p>
+
+<ul>
+<li>Objective: &quot;Predict the correct classification of this document.&quot;</li>
+<li>Input: &quot;Frequencies of the words used in the document.&quot;</li>
+<li>Output: A class (eg., food, sports, finance, etc..)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Exploration</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:;">
+  <hgroup>
+    <h2>Visualization</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Understanding</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Why Would We Want To Do This?!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>McKinsey Global Institute (2011) predicted the importance of Big Data/Data Science/Machine Learning:
+<a href="http://www.mckinsey.com/business-functions/digital-mckinsey/our-insights/big-data-the-next-frontier-for-innovation">http://www.mckinsey.com/business-functions/digital-mckinsey/our-insights/big-data-the-next-frontier-for-innovation</a></p>
+
+<blockquote>
+<p>The McKinsey Global Institute argues that data analytics is emerging at the forefront as the competitive advantage of any business, driving productivity, growth and innovation. </p>
+</blockquote>
+
+<p>A human being can not read thens of thousands of document per day, let alone per hour, minute or second.  Computers can! (Or can they?!)</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Digression: The Chinese Room (John Searle)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="chineseroom.jpg" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>More Concretely (Finally!)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Supervised Learning</li>
+<li>Unsupervised Learning</li>
+<li>Semi-Supervised Learning</li>
+<li>Active Learning</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Supervised Learning</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Supervision means that the algorithms are instructed.</p>
+
+<p>Example:
+Objective: Determine the spamicity of emails.
+Input: A corpus of emails tagged as spam and ham. 
+Output: Spam/Ham</p>
+
+<p>The computerized model learns <em>weights</em> that are multiplied with <em>features</em> generated from emails to determine their status. Thus, the model can be applied to novel (new) data.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Unsupervised Learning</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Algorithms are not provided a set of goals they are to reach.</p>
+
+<h2></h2>
+
+<h2>Example Algorithms</h2>
+
+<p>Naive Bayes Classification</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Synopsis'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='What is this?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Levenshtein Distance!'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Levenshtein Distance = Machine Learning'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='In Research'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='As you shout out in the forest, you are answered!'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='NA'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='NA'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='NA'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='NA'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Machine Learning Enables Us To:'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Prediction'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Exploration'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Visualization'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Understanding'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Why Would We Want To Do This?!'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Digression: The Chinese Room (John Searle)'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='More Concretely (Finally!)'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Supervised Learning'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Unsupervised Learning'>
+         20
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
