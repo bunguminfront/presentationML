@@ -271,15 +271,29 @@
 
 <slide class="" id="slide-17" style="background:;">
   <hgroup>
-    <h2>Understanding</h2>
+    <h2>Understanding?</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>Inference can help us understand. </p>
+
+<p><img src="assets/fig/unnamed-chunk-7-1.png" alt="plot of chunk unnamed-chunk-7"></p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>The Effect of Cylinders</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
   <hgroup>
     <h2>Why Would We Want To Do This?!</h2>
   </hgroup>
@@ -297,7 +311,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-19" style="background:;">
+<slide class="" id="slide-20" style="background:;">
   <hgroup>
     <h2>Digression: The Chinese Room (John Searle)</h2>
   </hgroup>
@@ -308,7 +322,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-20" style="background:;">
+<slide class="" id="slide-21" style="background:;">
   <hgroup>
     <h2>More Concretely (Finally!)</h2>
   </hgroup>
@@ -324,7 +338,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-21" style="background:;">
+<slide class="" id="slide-22" style="background:;">
   <hgroup>
     <h2>Supervised Learning</h2>
   </hgroup>
@@ -342,18 +356,65 @@ Output: Spam/Ham</p>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-22" style="background:;">
+<slide class="" id="slide-23" style="background:;">
   <hgroup>
     <h2>Unsupervised Learning</h2>
   </hgroup>
   <article data-timings="">
     <p>Algorithms are not provided a set of goals they are to reach.</p>
 
-<h2></h2>
+<p>An example is the hierarchical clustering shown above.</p>
 
-<h2>Example Algorithms</h2>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-<p>Naive Bayes Classification</p>
+<slide class="" id="slide-24" style="background:;">
+  <hgroup>
+    <h2>Example Algorithms</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Naive Bayes Classification:</h3>
+
+<p>Under the assumption of conditional independence, the probability of a class is distributed as:</p>
+
+<p>\[
+\begin{align}
+p(C_k \mid x_1, \dots, x_n) & \varpropto p(C_k, x_1, \dots, x_n) \\
+& \varpropto p(C_k) \ p(x_1 \mid C_k) \ p(x_2\mid C_k) \ p(x_3\mid C_k) \ \cdots \\
+                            & \varpropto p(C_k) \prod_{i=1}^n p(x_i \mid C_k)\,.
+\end{align}
+\]
+Finding the best class:</p>
+
+<p>\[ \hat{y} = \underset{k \in \{1, \dots, K\}}{\operatorname{argmax}} \ p(C_k) \displaystyle\prod_{i=1}^n p(x_i \mid C_k).\]</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-25" style="background:;">
+  <hgroup>
+    <h2>NB Calculation</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code>  ##       No   Color    Type     Origin     Stolen
+  ##  [1,] &quot;1&quot;  &quot;Red&quot;    &quot;Sports&quot; &quot;Domestic&quot; &quot;Yes&quot; 
+  ##  [2,] &quot;2&quot;  &quot;Red&quot;    &quot;Sports&quot; &quot;Domestic&quot; &quot;No&quot;  
+  ##  [3,] &quot;3&quot;  &quot;Red&quot;    &quot;Sports&quot; &quot;Domestic&quot; &quot;Yes&quot; 
+  ##  [4,] &quot;4&quot;  &quot;Yellow&quot; &quot;Sports&quot; &quot;Domestic&quot; &quot;No&quot;  
+  ##  [5,] &quot;5&quot;  &quot;Yellow&quot; &quot;Sports&quot; &quot;Imported&quot; &quot;Yes&quot; 
+  ##  [6,] &quot;6&quot;  &quot;Yellow&quot; &quot;SUV&quot;    &quot;Imported&quot; &quot;No&quot;  
+  ##  [7,] &quot;7&quot;  &quot;Yellow&quot; &quot;SUV&quot;    &quot;Imported&quot; &quot;Yes&quot; 
+  ##  [8,] &quot;8&quot;  &quot;Yellow&quot; &quot;SUV&quot;    &quot;Domestic&quot; &quot;No&quot;  
+  ##  [9,] &quot;9&quot;  &quot;Red&quot;    &quot;SUV&quot;    &quot;Imported&quot; &quot;No&quot;  
+  ## [10,] &quot;10&quot; &quot;Red&quot;    &quot;Sports&quot; &quot;Imported&quot; &quot;Yes&quot;
+</code></pre>
+
+<p>\[
+P(Yes|Red, Sports, Domestic) = P(Yes)*P(Red|Yes)*P(Sports|Yes)*P(Domestic|Yes) \\
+P(No|Red, Sports, Domestic) = P(No)*P(Red|No)*P(Sports|No)*P(Domestic|No)
+\]</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -461,38 +522,56 @@ Output: Spam/Ham</p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Understanding'>
+        data-slide=17 title='Understanding?'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Why Would We Want To Do This?!'>
+        data-slide=18 title='The Effect of Cylinders'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Digression: The Chinese Room (John Searle)'>
+        data-slide=19 title='Why Would We Want To Do This?!'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='More Concretely (Finally!)'>
+        data-slide=20 title='Digression: The Chinese Room (John Searle)'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Supervised Learning'>
+        data-slide=21 title='More Concretely (Finally!)'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Unsupervised Learning'>
+        data-slide=22 title='Supervised Learning'>
          22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Unsupervised Learning'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Example Algorithms'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='NB Calculation'>
+         25
       </a>
     </li>
   </ul>
@@ -505,7 +584,21 @@ Output: Spam/Ham</p>
 </body>
   <!-- Load Javascripts for Widgets -->
   
-  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
   <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <!-- DONE LOADING HIGHLIGHTER JS FILES -->

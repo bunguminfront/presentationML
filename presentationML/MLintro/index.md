@@ -6,7 +6,7 @@ job         :
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
+widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
@@ -145,7 +145,19 @@ Que?!
 ![plot of chunk unnamed-chunk-6](assets/fig/unnamed-chunk-6-1.png)
 
 ---
-## Understanding
+## Understanding?
+
+Inference can help us understand. 
+
+![plot of chunk unnamed-chunk-7](assets/fig/unnamed-chunk-7-1.png)
+
+
+---
+## The Effect of Cylinders
+![plot of chunk unnamed-chunk-8](assets/fig/unnamed-chunk-8-1.png)
+
+
+
 
 ---
 ## Why Would We Want To Do This?!
@@ -188,7 +200,46 @@ The computerized model learns *weights* that are multiplied with *features* gene
 
 Algorithms are not provided a set of goals they are to reach.
 
--- 
+An example is the hierarchical clustering shown above.
+
+--- 
 ## Example Algorithms
 
-Naive Bayes Classification
+### Naive Bayes Classification:
+
+Under the assumption of conditional independence, the probability of a class is distributed as:
+
+$$
+\begin{align}
+p(C_k \mid x_1, \dots, x_n) & \varpropto p(C_k, x_1, \dots, x_n) \\
+& \varpropto p(C_k) \ p(x_1 \mid C_k) \ p(x_2\mid C_k) \ p(x_3\mid C_k) \ \cdots \\
+                            & \varpropto p(C_k) \prod_{i=1}^n p(x_i \mid C_k)\,.
+\end{align}
+$$
+Finding the best class:
+
+$$ \hat{y} = \underset{k \in \{1, \dots, K\}}{\operatorname{argmax}} \ p(C_k) \displaystyle\prod_{i=1}^n p(x_i \mid C_k).$$
+
+---
+## NB Calculation
+  
+  
+  ```
+  ##       No   Color    Type     Origin     Stolen
+  ##  [1,] "1"  "Red"    "Sports" "Domestic" "Yes" 
+  ##  [2,] "2"  "Red"    "Sports" "Domestic" "No"  
+  ##  [3,] "3"  "Red"    "Sports" "Domestic" "Yes" 
+  ##  [4,] "4"  "Yellow" "Sports" "Domestic" "No"  
+  ##  [5,] "5"  "Yellow" "Sports" "Imported" "Yes" 
+  ##  [6,] "6"  "Yellow" "SUV"    "Imported" "No"  
+  ##  [7,] "7"  "Yellow" "SUV"    "Imported" "Yes" 
+  ##  [8,] "8"  "Yellow" "SUV"    "Domestic" "No"  
+  ##  [9,] "9"  "Red"    "SUV"    "Imported" "No"  
+  ## [10,] "10" "Red"    "Sports" "Imported" "Yes"
+  ```
+
+$$
+P(Yes|Red, Sports, Domestic) = P(Yes)*P(Red|Yes)*P(Sports|Yes)*P(Domestic|Yes) \\
+P(No|Red, Sports, Domestic) = P(No)*P(Red|No)*P(Sports|No)*P(Domestic|No)
+$$
+
