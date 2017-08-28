@@ -192,6 +192,8 @@
 
 <p class='.'>with lots of data.</p>
 
+<p>Data-driven approaches learn from data (bottom-up) as opposed to coming up with rules and applying them to data (top-down).</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -201,14 +203,14 @@
     <h2>Prediction</h2>
   </hgroup>
   <article data-timings="">
-    <p>Prediction ranges from predicting classes, binary or multiclass, i.e., &quot;should I stay or should I go&quot; vs. &quot;when should I go&quot;, if the potential times are discrete.  If they are continuous, we have a regression problem.</p>
+    <p>Prediction ranges from predicting classes, binary or multiclass, i.e., &quot;should I stay or should I go&quot; vs. &quot;when should I go&quot; -- if the potential times are discrete.  If they are continuous, we have a regression problem.</p>
 
 <p>A lot (but not arbitrarily much!) context can be taken into account when making these predictions.</p>
 
 <p>Example:</p>
 
 <ul>
-<li>Objective: &quot;Predict the correct classification of this document.&quot;</li>
+<li>Objective: &quot;Predict the correct class of this document.&quot;</li>
 <li>Input: &quot;Frequencies of the words used in the document.&quot;</li>
 <li>Output: A class (eg., food, sports, finance, etc..)</li>
 </ul>
@@ -226,7 +228,7 @@
 
 <p><em>Iris</em> dataset: </p>
 
-<p>50 measurements of <em>sepal length</em> and <em>width</em>, and <em>petal length</em> and <em>width</em> of 50 flowers of 3 species of Iris, <strong>setosa</strong>, <strong>versicolor</strong>, and <strong>virginica</strong>.</p>
+<p>50 measurements of <em>sepal length</em> and <em>width</em>, and <em>petal length</em> and <em>width</em> of 50 flowers of 3 species of Iris; <strong>setosa</strong>, <strong>versicolor</strong>, and <strong>virginica</strong>.</p>
 
 <p><img src="Begerblad.jpg" alt=""></p>
 
@@ -343,12 +345,15 @@
     <h2>Supervised Learning</h2>
   </hgroup>
   <article data-timings="">
-    <p>Supervision means that the algorithms are instructed.</p>
+    <p>Supervision means that the algorithms are instructed.  More technically, a function is inferred from labeled data.</p>
 
-<p>Example:
-Objective: Determine the spamicity of emails.
-Input: A corpus of emails tagged as spam and ham. 
-Output: Spam/Ham</p>
+<p>Example:</p>
+
+<ul>
+<li>Objective: Determine the spamicity of emails.</li>
+<li>Input: A corpus of emails tagged as spam and ham. </li>
+<li>Output: A class {Spam, Ham}</li>
+</ul>
 
 <p>The computerized model learns <em>weights</em> that are multiplied with <em>features</em> generated from emails to determine their status. Thus, the model can be applied to novel (new) data.</p>
 
@@ -365,18 +370,22 @@ Output: Spam/Ham</p>
 
 <p>An example is the hierarchical clustering shown above.</p>
 
+<p>Idea: run an algorithm on data and infer relations in the data in another (lower) dimension based on shared properties.  This can result, for instance, in a clustering which groups similar objects together.</p>
+
+<p>Patterns can be discovered (such as topics in a document colletion) or input lower-dimensional representations of instances.</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-24" style="background:;">
   <hgroup>
-    <h2>Example Algorithms</h2>
+    <h2>Example Algorithm</h2>
   </hgroup>
   <article data-timings="">
     <h3>Naive Bayes Classification:</h3>
 
-<p>Under the assumption of conditional independence, the probability of a class is distributed as:</p>
+<p>Under the assumption of conditional independence, the probability of a class \(k\) is expresed as:</p>
 
 <p>\[
 \begin{align}
@@ -412,9 +421,85 @@ Finding the best class:</p>
 </code></pre>
 
 <p>\[
-P(Yes|Red, Sports, Domestic) = P(Yes)*P(Red|Yes)*P(Sports|Yes)*P(Domestic|Yes) \\
-P(No|Red, Sports, Domestic) = P(No)*P(Red|No)*P(Sports|No)*P(Domestic|No)
+P(Yes|Red, Sports, Dom) = P(Yes)*P(Red|Yes)*P(Sports|Yes)*P(Dom|Yes) \\
+P(No|Red, Sports, Dom) = P(No)*P(Red|No)*P(Sports|No)*P(Dom|No)
 \]</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-26" style="background:;">
+  <hgroup>
+    <h2>Semi-Supervised Learning</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Example:</p>
+
+<p>We have some data which is tagged (<strong>Dow Jones Newswires</strong>) but other data that is untagged (<strong>other feeds</strong>).</p>
+
+<p>Tagging of the other data is then, strictly speaking, not a supervised task because we do not have any supervision on the data we are actually tagging.</p>
+
+<p>A recurring problem in all data-driven approaches; train a model on some data (text about food), apply it to other data (text about finance).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-27" style="background:;">
+  <hgroup>
+    <h2>Active Learning</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Select some, mis-classified instances, correct them and feed them back into the loop.</p>
+
+<p>This can also be referred to as reinforcement learning or on-line learning whereby the algorithm can learn from mistakes.</p>
+
+<p>Has been shown to improve training time as you need less data to converge to the maximum performance.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Infront and Machine Learning</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>For the Company:</p>
+
+<ul>
+<li>Business Intelligence (predict sales, new/old? customers, synergies between countries, marketing impact, etc.)</li>
+<li>Support (load prediction, FAQ creation, chatbots, etc.)</li>
+<li>Intrusion Detection (who is knocking on our door?)</li>
+<li>Sentiment Analysis (how do people feel about #infront on Twitter?)</li>
+</ul>
+
+<p>For the Customers:</p>
+
+<ul>
+<li>Recommendation of (products, news, stocks?!)</li>
+<li>Text Summarization (what&#39;s the essence of this document/document collection)</li>
+<li>Topic Discovery (what are people talking about?)</li>
+<li>Voice APIs (play text, recognize voice)</li>
+<li>+++</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-29" style="background:;">
+  <hgroup>
+    <h2>Conclusion</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Machine Learning can be pervasive through the organization</li>
+<li>It is a helpful tool (your friend)</li>
+<li>Methods, algorithms, platforms are increasingly available</li>
+<li>Frameworks make it easier to deploy (e.g., try many algorithms in parallel)</li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -564,7 +649,7 @@ P(No|Red, Sports, Domestic) = P(No)*P(Red|No)*P(Sports|No)*P(Domestic|No)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='Example Algorithms'>
+        data-slide=24 title='Example Algorithm'>
          24
       </a>
     </li>
@@ -572,6 +657,30 @@ P(No|Red, Sports, Domestic) = P(No)*P(Red|No)*P(Sports|No)*P(Domestic|No)
       <a href="#" target="_self" rel='tooltip' 
         data-slide=25 title='NB Calculation'>
          25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Semi-Supervised Learning'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Active Learning'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Infront and Machine Learning'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='Conclusion'>
+         29
       </a>
     </li>
   </ul>

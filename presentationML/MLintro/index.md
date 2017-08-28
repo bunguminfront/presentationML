@@ -106,15 +106,17 @@ In Frameworks:
 
 .. with lots of data.
 
+Data-driven approaches learn from data (bottom-up) as opposed to coming up with rules and applying them to data (top-down).
+
 ---
 ## Prediction
 
-Prediction ranges from predicting classes, binary or multiclass, i.e., "should I stay or should I go" vs. "when should I go", if the potential times are discrete.  If they are continuous, we have a regression problem.
+Prediction ranges from predicting classes, binary or multiclass, i.e., "should I stay or should I go" vs. "when should I go" -- if the potential times are discrete.  If they are continuous, we have a regression problem.
 
 A lot (but not arbitrarily much!) context can be taken into account when making these predictions.
 
 Example:
-* Objective: "Predict the correct classification of this document."
+* Objective: "Predict the correct class of this document."
 * Input: "Frequencies of the words used in the document."
 * Output: A class (eg., food, sports, finance, etc..)
 
@@ -125,7 +127,7 @@ Machine Learning can help us explore a dataset.
 
 *Iris* dataset: 
 
-50 measurements of *sepal length* and *width*, and *petal length* and *width* of 50 flowers of 3 species of Iris, **setosa**, **versicolor**, and **virginica**.
+50 measurements of *sepal length* and *width*, and *petal length* and *width* of 50 flowers of 3 species of Iris; **setosa**, **versicolor**, and **virginica**.
 
 ![](Begerblad.jpg)
 
@@ -157,8 +159,6 @@ Inference can help us understand.
 ![plot of chunk unnamed-chunk-8](assets/fig/unnamed-chunk-8-1.png)
 
 
-
-
 ---
 ## Why Would We Want To Do This?!
 
@@ -186,12 +186,13 @@ A human being can not read thens of thousands of document per day, let alone per
 ---
 ## Supervised Learning
 
-Supervision means that the algorithms are instructed.
+Supervision means that the algorithms are instructed.  More technically, a function is inferred from labeled data.
 
 Example:
-Objective: Determine the spamicity of emails.
-Input: A corpus of emails tagged as spam and ham. 
-Output: Spam/Ham
+
+* Objective: Determine the spamicity of emails.
+* Input: A corpus of emails tagged as spam and ham. 
+* Output: A class {Spam, Ham}
 
 The computerized model learns *weights* that are multiplied with *features* generated from emails to determine their status. Thus, the model can be applied to novel (new) data.
 
@@ -202,12 +203,16 @@ Algorithms are not provided a set of goals they are to reach.
 
 An example is the hierarchical clustering shown above.
 
+Idea: run an algorithm on data and infer relations in the data in another (lower) dimension based on shared properties.  This can result, for instance, in a clustering which groups similar objects together.
+
+Patterns can be discovered (such as topics in a document colletion) or input lower-dimensional representations of instances.
+
 --- 
-## Example Algorithms
+## Example Algorithm
 
 ### Naive Bayes Classification:
 
-Under the assumption of conditional independence, the probability of a class is distributed as:
+Under the assumption of conditional independence, the probability of a class $k$ is expresed as:
 
 $$
 \begin{align}
@@ -239,7 +244,51 @@ $$ \hat{y} = \underset{k \in \{1, \dots, K\}}{\operatorname{argmax}} \ p(C_k) \d
   ```
 
 $$
-P(Yes|Red, Sports, Domestic) = P(Yes)*P(Red|Yes)*P(Sports|Yes)*P(Domestic|Yes) \\
-P(No|Red, Sports, Domestic) = P(No)*P(Red|No)*P(Sports|No)*P(Domestic|No)
+P(Yes|Red, Sports, Dom) = P(Yes)*P(Red|Yes)*P(Sports|Yes)*P(Dom|Yes) \\
+P(No|Red, Sports, Dom) = P(No)*P(Red|No)*P(Sports|No)*P(Dom|No)
 $$
 
+---
+## Semi-Supervised Learning
+
+Example:
+
+We have some data which is tagged (**Dow Jones Newswires**) but other data that is untagged (**other feeds**).
+
+Tagging of the other data is then, strictly speaking, not a supervised task because we do not have any supervision on the data we are actually tagging.
+
+A recurring problem in all data-driven approaches; train a model on some data (text about food), apply it to other data (text about finance).
+
+---
+## Active Learning
+
+Select some, mis-classified instances, correct them and feed them back into the loop.
+
+This can also be referred to as reinforcement learning or on-line learning whereby the algorithm can learn from mistakes.
+
+Has been shown to improve training time as you need less data to converge to the maximum performance.
+
+---
+## Infront and Machine Learning
+
+For the Company:
+* Business Intelligence (predict sales, new/old? customers, synergies between countries, marketing impact, etc.)
+* Support (load prediction, FAQ creation, chatbots, etc.)
+* Intrusion Detection (who is knocking on our door?)
+* Sentiment Analysis (how do people feel about #infront on Twitter?)
+
+For the Customers:
+* Recommendation of (products, news, stocks?!)
+* Text Summarization (what's the essence of this document/document collection)
+* Topic Discovery (what are people talking about?)
+* Voice APIs (play text, recognize voice)
+* +++
+
+
+---
+## Conclusion 
+
+* Machine Learning can be pervasive through the organization
+* It is a helpful tool (your friend)
+* Methods, algorithms, platforms are increasingly available
+* Frameworks make it easier to deploy (e.g., try many algorithms in parallel)
