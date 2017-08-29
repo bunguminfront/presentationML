@@ -165,9 +165,9 @@ Inference can help us understand.
 McKinsey Global Institute (2011) predicted the importance of Big Data/Data Science/Machine Learning:
 http://www.mckinsey.com/business-functions/digital-mckinsey/our-insights/big-data-the-next-frontier-for-innovation
 
-> The McKinsey Global Institute argues that data analytics is emerging at the forefront as the competitive advantage of any business, driving productivity, growth and innovation. 
+> The McKinsey Global Institute argues that data analytics is emerging at the forefront as the competitive advantage of any business, driving productivity, growth, and innovation. 
 
-A human being can not read thens of thousands of document per day, let alone per hour, minute or second.  Computers can! (Or can they?!)
+A human being can not read tens of thousands of document per day, let alone per hour, minute, or second.  Computers can! (Or can they?!)
 
 ---
 ## Digression: The Chinese Room (John Searle)
@@ -205,14 +205,14 @@ An example is the hierarchical clustering shown above.
 
 Idea: run an algorithm on data and infer relations in the data in another (lower) dimension based on shared properties.  This can result, for instance, in a clustering which groups similar objects together.
 
-Patterns can be discovered (such as topics in a document colletion) or input lower-dimensional representations of instances.
+Patterns can be discovered (such as topics in a document colletion) or lower-dimensional representations of instances can be created.
 
 --- 
 ## Example Algorithm
 
 ### Naive Bayes Classification:
 
-Under the assumption of conditional independence, the probability of a class $k$ is expresed as:
+Under the assumption of conditional independence, the probability of a class $k$ is expressed as:
 
 $$
 \begin{align}
@@ -272,18 +272,19 @@ Has been shown to improve training time as you need less data to converge to the
 ## Infront and Machine Learning
 
 For the Company:
+
 * Business Intelligence (predict sales, new/old? customers, synergies between countries, marketing impact, etc.)
 * Support (load prediction, FAQ creation, chatbots, etc.)
 * Intrusion Detection (who is knocking on our door?)
 * Sentiment Analysis (how do people feel about #infront on Twitter?)
 
 For the Customers:
+
 * Recommendation of (products, news, stocks?!)
 * Text Summarization (what's the essence of this document/document collection)
 * Topic Discovery (what are people talking about?)
 * Voice APIs (play text, recognize voice)
 * +++
-
 
 ---
 ## Conclusion 
